@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio - Crystalya | Fisika UPI</title>
+  
+  <!-- Font Google Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       VARIABEL WARNA (PALET MATCHA & DASAR)
+       ========================================= */
+    :root {
+      --bg-white: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f9faf8;
+      
+      /* Aksen Matcha yang Teduh */
+      --matcha-deep: #2d4734;       /* Hijau matcha pekat untuk heading & teks penting */
+      --matcha-primary: #55755b;    /* Matcha sage untuk aksen utama / tombol */
+      --matcha-hover: #435e48;      /* Hover tombol */
+      --matcha-soft: #8ca593;       /* Matcha lembut untuk elemen sekunder */
+      --matcha-light: #eef3ef;      /* Tint matcha sangat lembut untuk badge / border */
+      --matcha-border: #dde6df;     /* Border pembatas yang halus */
+      
+      /* Netral */
+      --text-main: #2b302d;         /* Teks utama (abu-abu sangat gelap berkarakter daun) */
+      --text-muted: #626c64;        /* Teks pendukung */
+      --text-subtle: #8a968d;       /* Keterangan kecil */
+      
+      --font-body: 'Inter', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --transition: all 0.25s ease-in-out;
+      --shadow-sm: 0 2px 8px rgba(45, 71, 52, 0.04);
+      --shadow-md: 0 8px 24px rgba(45, 71, 52, 0.08);
+      --radius: 12px;
+    }
+
+    /* Reset Dasar */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-white);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Container Pembungkus */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* =========================================
+       NAVBAR
+       ========================================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--matcha-border);
+      z-index: 1000;
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--matcha-deep);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-logo span {
+      color: var(--matcha-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--matcha-deep);
+    }
+
+    /* Tombol Kontak Navbar */
+    .btn-nav {
+      background-color: var(--matcha-light);
+      color: var(--matcha-deep);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 1px solid var(--matcha-border);
+    }
+
+    .btn-nav:hover {
+      background-color: var(--matcha-primary);
+      color: #ffffff;
+      border-color: var(--matcha-primary);
+    }
+
+    /* =========================================
+       HERO SECTION
+       ========================================= */
+    .hero {
+      padding: 90px 0 60px;
+      background: #ffffff;
+    }
+
+    .hero-content {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--matcha-light);
+      color: var(--matcha-deep);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid var(--matcha-border);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--matcha-primary);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--matcha-deep);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: var(--matcha-primary);
+      color: #ffffff;
+      padding: 12px 26px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 14px rgba(85, 117, 91, 0.25);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--matcha-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--matcha-deep);
+      padding: 12px 26px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid var(--matcha-border);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--matcha-light);
+    }
+
+    /* =========================================
+       SECTION COMMON
+       ========================================= */
+    section {
+      padding: 70px 0;
+      border-top: 1px solid #f1f4f1;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-category {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--matcha-soft);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--matcha-deep);
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 600px;
+    }
+
+    /* =========================================
+       ABOUT SECTION
+       ========================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .info-card {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--matcha-border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed var(--matcha-border);
+      padding-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .info-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-label {
+      color: var(--text-subtle);
+      font-weight: 500;
+    }
+
+    .info-value {
+      color: var(--matcha-deep);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    /* =========================================
+       FOCUS & SKILLS
+       ========================================= */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: #ffffff;
+      border: 1px solid var(--matcha-border);
+      padding: 24px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--matcha-soft);
+    }
+
+    .skill-icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .skill-card h3 {
+      font-size: 1.15rem;
+      color: var(--matcha-deep);
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* =========================================
+       PROJECTS / LAB EXPERIMENTS
+       ========================================= */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: #ffffff;
+      border: 1px solid var(--matcha-border);
+      border-radius: var(--radius);
+      padding: 26px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--matcha-primary);
+    }
+
+    .project-tag {
+      align-self: flex-start;
+      background: var(--matcha-light);
+      color: var(--matcha-deep);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      color: var(--matcha-deep);
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .tech-badge {
+      font-size: 0.8rem;
+      color: var(--matcha-primary);
+      background: #f4f7f4;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* =========================================
+       CONTACT SECTION
+       ========================================= */
+    .contact-card {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--matcha-border);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .contact-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--matcha-deep);
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 0.98rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--matcha-border);
+      color: var(--matcha-deep);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .contact-badge:hover {
+      background: var(--matcha-primary);
+      color: #ffffff;
+      border-color: var(--matcha-primary);
+    }
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--matcha-border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-subtle);
+      background: #ffffff;
+    }
+
+    /* =========================================
+       RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================= */
+    @media (max-width: 860px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 50px 0 40px;
+      }
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .nav-links {
+        display: none; /* Disederhanakan untuk layar mobile kecil */
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-card {
+        padding: 24px 16px;
+      }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">crystalya<span>.physics</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#focus">Fokus Studi</a></li>
+        <li><a href="#projects">Proyek Lab</a></li>
+      </ul>
+      <a href="#contact" class="btn-nav">Hubungi</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span> Mahasiswi Fisika Murni &bull; UPI Bandung
+        </div>
+        <h1 class="hero-title">Eksplorasi Alam Semesta Melalui Teori, Praktik, & Komputasi.</h1>
+        <p class="hero-subtitle">
+          Halo, saya <strong>Crystalya</strong>, mahasiswi Fisika Murni semester 3 di Universitas Pendidikan Indonesia (UPI). Memiliki antusiasme tinggi pada dinamika klasik, analisis eksperimental laboratorium, dan komputasi fisika.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">Lihat Proyek & Praktikum</a>
+          <a href="#about" class="btn-secondary">Kenali Lebih Jauh</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-category">Profil Akademik</div>
+          <h2 class="section-title">Sekilas Tentang Saya</h2>
+          <p class="section-desc">Mengkombinasikan pemahaman konsep fisis dengan ketelitian metode analisis analitis maupun numerik.</p>
+        </div>
+        
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              Saat ini saya berada di <strong>Semester 3 Program Studi Fisika (Murni)</strong>, Fakultas Pendidikan Matematika dan Ilmu Pengetahuan Alam (FPMIPA), Universitas Pendidikan Indonesia.
+            </p>
+            <p>
+              Fokus saya terbagi antara eksplorasi penurunan hukum-hukum fundamental alam (mekanika, termodinamika, gelombang & optika) serta pengujian langsung fenomena tersebut di laboratorium melalui instrumentasi presisi dan pemodelan matematis.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <ul class="info-list">
+              <li class="info-item">
+                <span class="info-label">Nama</span>
+                <span class="info-value">Crystalya</span>
+              </li>
+              <li class="info-item">
+                <span class="info-label">Universitas</span>
+                <span class="info-value">Universitas Pendidikan Indonesia (UPI)</span>
+              </li>
+              <li class="info-item">
+                <span class="info-label">Program Studi</span>
+                <span class="info-value">Fisika Murni (S1)</span>
+              </li>
+              <li class="info-item">
+                <span class="info-label">Jenjang / Semester</span>
+                <span class="info-value">Sarjana / Semester 3</span>
+              </li>
+              <li class="info-item">
+                <span class="info-label">Minat Riset</span>
+                <span class="info-value">Fisika Komputasi & Instrumentasi</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOCUS & SKILLS -->
+    <section id="focus">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-category">Keahlian & Keilmuan</div>
+          <h2 class="section-title">Bidang Pembelajaran</h2>
+          <p class="section-desc">Kompetensi teori dan perkakas analitis yang dipelajari dan diasah selama perkuliahan.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">⚛️</div>
+            <h3>Fisika Teoritik & Klasik</h3>
+            <p>Penguasaan kalkulus multivariabel, mekanika Lagrange sederhana, osilasi harmonik, dan dinamika fluida viskos.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">🔬</div>
+            <h3>Praktikum Laboratorium</h3>
+            <p>Pengukuran presisi menggunakan osiloskop, spektrometer, optika laser, kalibrasi sensor, serta estimasi ralat ketidakpastian.</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>Komputasi & Analisis Data</h3>
+            <p>Pemanfaatan Python (NumPy, SciPy, Matplotlib) dan spreadsheet untuk regresi linier, curve fitting, dan simulasi numerik.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS / LAB EXPERIMENTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-category">Portofolio Laboratorium</div>
+          <h2 class="section-title">Proyek & Eksperimen Pilihan</h2>
+          <p class="section-desc">Kumpulan laporan riset laboratorium dan simulasi fisika semester 1 hingga 3.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Proyek 1 -->
+          <article class="project-card">
+            <div>
+              <span class="project-tag">Mekanika Fluida</span>
+              <h3>Penentuan Koefisien Viskositas Gliserin Menggunakan Metode Stokes</h3>
+              <p>Mengukur laju terminal kelereng baja dalam tabung fluida kental dengan koreksi diameter tabung dinding Ladenburg untuk menentukan viskositas fluida murni.</p>
+            </div>
+            <ul class="tech-stack">
+              <li class="tech-badge">Viskosimeter Stokes</li>
+              <li class="tech-badge">Analisis Ralat Gaussian</li>
+              <li class="tech-badge">Regresi Linear</li>
+            </ul>
+          </article>
+
+          <!-- Proyek 2 -->
+          <article class="project-card">
+            <div>
+              <span class="project-tag">Gelombang & Optika</span>
+              <h3>Pengukuran Panjang Gelombang Laser He-Ne via Celah Ganda Young</h3>
+              <p>Analisis pola interferensi intensitas cahaya dan difraksi kisi menggunakan detektor fotodioda serta verifikasi formula Fresnel-Fraunhofer.</p>
+            </div>
+            <ul class="tech-stack">
+              <li class="tech-badge">Laser Optik</li>
+              <li class="tech-badge">Fotodioda</li>
+              <li class="tech-badge">Data Logger</li>
+            </ul>
+          </article>
+
+          <!-- Proyek 3 -->
+          <article class="project-card">
+            <div>
+              <span class="project-tag">Fisika Komputasi</span>
+              <h3>Simulasi Gerak Osilator Teredam & Terdorong dengan Metode Runge-Kutta Orde 4</h3>
+              <p>Pemrograman numerik untuk memodelkan lintasan fase (*phase space trajectory*) dan resonansi frekuensi sistem massa-pegas nonlinear.</p>
+            </div>
+            <ul class="tech-stack">
+              <li class="tech-badge">Python</li>
+              <li class="tech-badge">NumPy</li>
+              <li class="tech-badge">Matplotlib</li>
+            </ul>
+          </article>
+
+          <!-- Proyek 4 -->
+          <article class="project-card">
+            <div>
+              <span class="project-tag">Elektronika Dasar</span>
+              <h3>Karakterisasi Resonansi Rangkaian RLC Seri & Faktor Kualitas (Q-Factor)</h3>
+              <p>Menganalisis respons frekuensi, impedansi minimum, serta pergeseran fasa sinyal bolak-balik menggunakan osiloskop dual-trace.</p>
+            </div>
+            <ul class="tech-stack">
+              <li class="tech-badge">Osiloskop</li>
+              <li class="tech-badge">Signal Generator</li>
+              <li class="tech-badge">Analisis Impedansi</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <h3>Mari Berkolaborasi</h3>
+          <p>Terbuka untuk diskusi proyek riset kelompok, kelompok belajar fisika, kegiatan ilmiah kampus UPI, maupun proyek berbasis komputasi.</p>
+          <div class="contact-links">
+            <a href="mailto:crystalya@upi.edu" class="contact-badge">✉️️ crystalya@upi.edu</a>
+            <a href="https://linkedin.com" target="_blank" class="contact-badge">🌐 LinkedIn</a>
+            <a href="https://github.com" target="_blank" class="contact-badge">💻 GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Crystalya &bull; Fisika Murni FPMIPA Universitas Pendidikan Indonesia</p>
+    </div>
+  </footer>
+
+</body>
+</html>
